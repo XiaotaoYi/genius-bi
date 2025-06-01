@@ -1,0 +1,15 @@
+{
+  "short_name": "Genius BI",
+  "name": "Genius BI - Intelligent Business Analytics Platform",
+  "icons": [
+    {
+      "src": "logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#1976D2",
+  "background_color": "#ffffff"
+} 
