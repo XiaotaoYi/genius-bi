@@ -201,7 +201,7 @@ function ChatList() {
 
 
   return (
-    <Box sx={{ display: 'flex', height: 'calc(100vh - 64px)'}}> {/* Adjust height based on header/footer */}
+    <Box sx={{ display: 'flex', height: 'calc(100vh - 130px)'}}> {/* Adjust height based on header/footer */}
       {/* Left Panel: Chat List */}
       <Box sx={{ width: isMobile ? '100%' : '300px', borderRight: '1px solid #ddd', overflowY: 'auto' }}>
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', p: 1 }}>
