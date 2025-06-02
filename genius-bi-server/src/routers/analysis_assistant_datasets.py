@@ -1,10 +1,13 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List
+from sqlalchemy import select
 
 from models import AnalysisAssistantDataset as AnalysisAssistantDatasetModel
+from models import Dataset as DatasetModel
 from schemas import AnalysisAssistantDataset as AnalysisAssistantDatasetSchema
 from schemas import AnalysisAssistantDatasetCreate, AnalysisAssistantDatasetUpdate
+from schemas import Dataset as DatasetSchema
 from database import get_db
 
 router = APIRouter()
@@ -47,4 +50,26 @@ def delete_analysis_assistant_dataset(assistant_dataset_id: int, db: Session = D
         raise HTTPException(status_code=404, detail="Analysis assistant dataset not found")
     db.delete(db_assistant_dataset)
     db.commit()
-    return db_assistant_dataset 
+    return db_assistant_dataset
+
+@router.get("/analysis-assistants/{assistant_id}/datasets")
+def read_assistant_datasets(assistant_id: int, page: int = 1, size: int = 10, db: Session = Depends(get_db)):
+    # Calculate offset
+    offset = (page - 1) * size
+    
+    # Query to get datasets associated with the assistant
+    datasets = (
+        db.query(DatasetModel)
+        .join(
+            AnalysisAssistantDatasetModel,
+            DatasetModel.id == AnalysisAssistantDatasetModel.dataset_id
+        )
+        .filter(AnalysisAssistantDatasetModel.analysis_assistant_id == assistant_id)
+        .offset(offset)
+        .limit(size)
+        .all()
+    )
+    
+    return {
+        "items": datasets
+    }

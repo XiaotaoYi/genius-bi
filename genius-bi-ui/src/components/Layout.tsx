@@ -32,7 +32,7 @@ import {
 } from '@mui/icons-material';
 
 const menuItems = [
-  { text: 'Chat', path: '/dashboards', icon: <DashboardIcon /> },
+  { text: 'Chat', path: '/chats', icon: <DashboardIcon /> },
   { text: 'Assistant', path: '/analysis-assistants', icon: <AnalysisAssistantIcon /> },
   { 
     text: 'Semantic',

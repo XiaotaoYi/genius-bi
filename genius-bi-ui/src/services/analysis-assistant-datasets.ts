@@ -1,5 +1,5 @@
 import api from './api';
-import type { AnalysisAssistantDataset, ApiResponse, PaginatedResponse } from '../types';
+import type { AnalysisAssistantDataset, ApiResponse, PaginatedResponse, Dataset } from '../types';
 
 export const analysisAssistantDatasetsService = {
   // Get all analysis assistant datasets with pagination
@@ -12,7 +12,7 @@ export const analysisAssistantDatasetsService = {
 
   // Get datasets by analysis assistant ID
   getDatasetsByAssistantId: async (assistant_id: number, page: number = 1, size: number = 10) => {
-    const response = await api.get<PaginatedResponse<AnalysisAssistantDataset>>(
+    const response = await api.get<PaginatedResponse<Dataset>>(
       `/analysis-assistants/${assistant_id}/datasets`,
       { params: { page, size } }
     );

@@ -7,4 +7,5 @@ export { metricsService } from './metrics';
 export { datasetsService } from './datasets';
 export { datasetFieldsService } from './dataset-fields';
 export { analysisAssistantsService } from './analysis-assistants';
-export { analysisAssistantDatasetsService } from './analysis-assistant-datasets'; 
+export { analysisAssistantDatasetsService } from './analysis-assistant-datasets';
+export { chatAssistantsService } from './chatAssistants'; 

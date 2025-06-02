@@ -25,10 +25,13 @@ import DatabaseList from './pages/Database/DatabaseList';
 import DatabaseCreate from './pages/Database/DatabaseCreate';
 import DatabaseEdit from './pages/Database/DatabaseEdit';
 import AnalysisAssistantList from './pages/AnalysisAssistant/AnalysisAssistantList';
+import AnalysisAssistantCreate from './pages/AnalysisAssistant/AnalysisAssistantCreate';
+import AnalysisAssistantEdit from './pages/AnalysisAssistant/AnalysisAssistantEdit';
 import IndexMarketList from './pages/IndexMarket/IndexMarketList';
 import UserList from './pages/User/UserList';
 import PermissionList from './pages/Permission/PermissionList';
 import SystemSettings from './pages/SystemSettings/SystemSettings';
+import ChatList from './pages/Chat/ChatList';
 
 function App() {
   return (
@@ -36,6 +39,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/*" element={<Layout />}>
+        <Route path="chats" element={<ChatList />} />
           <Route path="terms" element={<TermList />} />
           <Route path="terms/create" element={<TermCreate />} />
           <Route path="terms/edit/:id" element={<TermEdit />} />
@@ -59,6 +63,8 @@ function App() {
           <Route path="databases/create" element={<DatabaseCreate />} />
           <Route path="databases/edit/:id" element={<DatabaseEdit />} />
           <Route path="analysis-assistants" element={<AnalysisAssistantList />} />
+          <Route path="analysis-assistants/create" element={<AnalysisAssistantCreate />} />
+          <Route path="analysis-assistants/edit/:id" element={<AnalysisAssistantEdit />} />
           <Route path="index-markets" element={<IndexMarketList />} />
           <Route path="users" element={<UserList />} />
           <Route path="permissions" element={<PermissionList />} />

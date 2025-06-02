@@ -242,4 +242,36 @@ class AnalysisAssistantDataset(AnalysisAssistantDatasetBase):
     update_time: Optional[datetime] = None
 
     class Config:
-        from_attributes = True 
+        from_attributes = True
+
+class ChatAssistant(BaseModel):
+    id: int
+    chat_name: str
+    chat_description: str
+    analysis_assistant_id: int
+    create_by: Optional[str] = None
+    create_time: Optional[datetime] = None
+    update_by: Optional[str] = None
+    update_time: Optional[datetime] = None
+
+    class Config:
+        from_attributes = True
+
+class ChatAssistantQuery(BaseModel):
+    chat_id: int
+    query: str
+
+    class Config:
+        from_attributes = True
+
+class ChatAssistantCreate(BaseModel):
+    chat_name: str
+    chat_description: str
+    analysis_assistant_id: int
+    create_by: Optional[str] = None
+
+class ChatAssistantUpdate(BaseModel):
+    chat_name: Optional[str] = None
+    chat_description: Optional[str] = None
+    analysis_assistant_id: Optional[int] = None
+    update_by: Optional[str] = None 

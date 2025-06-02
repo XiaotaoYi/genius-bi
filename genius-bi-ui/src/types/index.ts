@@ -157,4 +157,31 @@ export interface ModelMetric {
   create_time?: string;
   update_by?: string;
   update_time?: string;
+}
+
+export interface ChatAssistantBase {
+  chat_name: string;
+  chat_description?: string;
+  analysis_assistant_id: number;
+  create_by?: string;
+}
+
+export interface ChatAssistantCreate extends ChatAssistantBase {}
+
+export interface ChatAssistantUpdate {
+  chat_name?: string;
+  chat_description?: string;
+  analysis_assistant_id?: number;
+  update_by?: string;
+}
+
+export interface ChatAssistant extends ChatAssistantBase {
+  id: number;
+  create_time?: string;
+  update_time?: string;
 } 
+
+export interface ChatAssistantQuery {
+  chat_id: number;
+  query: string;
+}

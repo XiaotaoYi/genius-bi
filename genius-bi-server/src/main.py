@@ -10,7 +10,8 @@ from routers import (
     models,
     databases,
     llms,
-    terms
+    terms,
+    chat_assistants
 )
 
 app = FastAPI()
@@ -26,6 +27,7 @@ app.include_router(models.router, tags=["Models"])
 app.include_router(databases.router, tags=["Databases"])
 app.include_router(llms.router, tags=["LLMs"])
 app.include_router(terms.router, tags=["Terms"])
+app.include_router(chat_assistants.router, tags=["Chat Assistants"])
 
 # Enable CORS
 app.add_middleware(

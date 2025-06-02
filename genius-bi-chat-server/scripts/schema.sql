@@ -143,3 +143,15 @@ CREATE TABLE `analysis_assistant_dataset_tbl` (
   `update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'update time',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE `chat_assistant_tbl` (
+  `id` BIGINT UNSIGNED NOT NULL comment 'primary key id',
+  `chat_name` varchar(50) NOT NULL comment 'chat name',
+  `chat_description` varchar(50) NOT NULL comment 'chat description',
+  `analysis_assistant_id` BIGINT UNSIGNED  NOT NULL comment 'dimension id',
+  `create_by` varchar(50) DEFAULT NULL comment 'create user',
+  `create_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP comment 'create time',
+  `update_by` varchar(50) DEFAULT NULL comment 'update user',
+  `update_time` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP comment 'update time',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

@@ -148,4 +148,16 @@ class AnalysisAssistantDataset(Base):
     create_by = Column(String(50))
     create_time = Column(TIMESTAMP, server_default=func.now())
     update_by = Column(String(50))
+    update_time = Column(TIMESTAMP, server_default=func.now(), onupdate=func.now())
+
+class ChatAssistant(Base):
+    __tablename__ = 'chat_assistant_tbl'
+
+    id = Column(BigInteger, primary_key=True, autoincrement=True)
+    chat_name = Column(String(50), nullable=False)
+    chat_description = Column(String(50), nullable=False)
+    analysis_assistant_id = Column(BigInteger, nullable=False)
+    create_by = Column(String(50))
+    create_time = Column(TIMESTAMP, server_default=func.now())
+    update_by = Column(String(50))
     update_time = Column(TIMESTAMP, server_default=func.now(), onupdate=func.now()) 
