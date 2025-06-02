@@ -135,10 +135,11 @@ function Layout() {
         sx={{
           flexGrow: 1,
           p: 3,
+          pl: 0,
           mt: '64px', // Height of AppBar
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="xl" disableGutters>
           <Outlet />
         </Container>
       </Box>
